@@ -1,0 +1,43 @@
+﻿@model Real_State.ViewModel.PropertyFormViewModel
+@{
+    ViewBag.Title = "PropertyForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>PropertyForm</h2>
+@using (Html.BeginForm("Save", "Property"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Property.PropertyTypesID)
+        @Html.DropDownListFor(m => m.Property.PropertyTypesID, new SelectList(Model.KindsOfProperty, "ID", "PropertyTypesName"), "Select Membership Type", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Property.BedroomNumber)
+        @Html.TextBoxFor(m => m.Property.BedroomNumber, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Property.BathroomNumber)
+        @Html.TextBoxFor(m => m.Property.BathroomNumber, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Property.Area)
+        @Html.TextBoxFor(m => m.Property.Area, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Property.Location)
+        @Html.TextBoxFor(m => m.Property.Location, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Property.Price)
+        @Html.TextBoxFor(m => m.Property.Price, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Property.Description)
+        @Html.TextAreaFor(m => m.Property.Description, new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(m => m.Property.ID)
+    <button type="submit" class="btn btn-primary">Save</button>
+
+
+}
+

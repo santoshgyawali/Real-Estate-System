@@ -1,0 +1,74 @@
+﻿
+@model Real_State.Models.EmailForm
+
+@{
+    ViewBag.Title = "PropertyForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+@*<html>
+        <head>
+            <meta name="viewport" content="width=device-width" />
+            <title>Contacts</title>
+        </head>
+        <body>
+    <div>*@
+@using (Html.BeginForm("Contacts", "Home", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    
+    <div class="form-group" align="center">
+        @Html.LabelFor(m => m.To)
+        @Html.TextBoxFor(m => m.To, new { @class = "form-control" })
+    </div>
+    <div class="form-group" align="center">
+        @Html.LabelFor(m => m.Subject)
+        @Html.TextBoxFor(m => m.Subject, new { @class = "form-control" })
+    </div>
+    <div class="form-group" align="center">
+        @Html.LabelFor(m => m.PhoneNo)
+        @Html.TextBoxFor(m => m.PhoneNo, new { @class = "form-control" })
+    </div>
+    <div class="form-group" align="center">
+        @Html.LabelFor(m => m.Body)
+        @Html.TextAreaFor(m => m.Body, new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary" align="center">Send Message</button>
+}
+    @* <center>
+                    <h1> Contact the Agent</h1>
+                    <h2> Please provide your comment</h2>
+                    <br />
+                    <table>
+                        <tr>
+                            <td style="width:80px"> To:</td>
+                            <td>@Html.TextAreaFor(model => model.To)</td>
+                        </tr>
+                        <tr>
+                            <td>Subject:</td>
+                            <td>@Html.TextAreaFor(model => model.Subject)</td>
+                        </tr>
+
+                        <tr>
+                            <td valign="top">Body:</td>
+                            <td>@Html.TextAreaFor(model => model.Body, new { rows = "15", cols = "25" })</td>
+                        </tr>
+                        <tr>
+                            <td>Phone Number:</td>
+                            <td>@Html.TextAreaFor(model => model.PhoneNo)</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="submit" value="Send" />
+                            </td>
+                        </tr>
+
+                    </table>
+                    <br />
+                    <span style="color:green">@ViewBag.Message</span>
+                </center>
+        }
+            </div>
+        </body>
+        </html>*@

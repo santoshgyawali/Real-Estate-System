@@ -1,0 +1,40 @@
+﻿@model Real_State.ViewModel.AgentFormViewModel
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+@using (Html.BeginForm("save", "agent", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-group">
+        @Html.Label("photo", new { @class = "control-label" })
+        <input type="file" id="photo" name="picture" />
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.AgentProfile.Name)
+        @Html.TextBoxFor(m => m.AgentProfile.Name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.AgentProfile.DateOfBirth)
+        @Html.TextBoxFor(m => m.AgentProfile.DateOfBirth, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.AgentProfile.PhoneNo)
+        @Html.TextBoxFor(m => m.AgentProfile.PhoneNo, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.AgentProfile.LicenseNo)
+        @Html.TextBoxFor(m => m.AgentProfile.LicenseNo, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.AgentProfile.Email)
+        @Html.TextBoxFor(m => m.AgentProfile.Email, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.AgentProfile.Password)
+        @Html.TextBoxFor(m => m.AgentProfile.Password, new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary">save</button>
+    @*html.hiddenfor(m => m.agentprofile.id)*@
+ }
