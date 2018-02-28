@@ -66,7 +66,7 @@ namespace Real_State.Controllers
         [HttpPost]
         public ActionResult Contacts(Real_State.Models.EmailForm model)
         {
-            MailMessage mm = new MailMessage(model.From, "sxg85140@ucmo.edu");
+            MailMessage mm = new MailMessage("sxg85140@ucmo.edu", model.To);
 
             mm.Subject = model.Subject;
             //mm.Body = model.Body;

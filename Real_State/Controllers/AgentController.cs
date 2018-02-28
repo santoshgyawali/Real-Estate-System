@@ -29,29 +29,26 @@ namespace Real_State.Controllers
         }
         public ActionResult Create()
         {
-            var img = _context.Images.ToList();
-            var viewModel = new AgentFormViewModel
-            {
-                AgentProfile = new AgentProfile(),
-                Images = img
-            };
-            return View("Create", viewModel);
+            var img = _context.AgentProfiles.ToList();
+           
+            return View();
         }
+        
         [HttpPost]
-        public ActionResult Save(AgentProfile AgentProfile, Image Images, HttpPostedFileBase picture)
+        public ActionResult Save(AgentProfile AgentProfile, HttpPostedFileBase picture)
         {
             if (AgentProfile.ID ==0)
             {
-                Images.ImageName = Path.GetFileNameWithoutExtension(picture.FileName);
+                AgentProfile.ImageName = Path.GetFileNameWithoutExtension(picture.FileName);
                 String extension = Path.GetExtension(picture.FileName);
                 var newExtenion = Guid.NewGuid();
-                Images.ImageName = Images.ImageName + newExtenion;
-                Images.ImagePath = Path.Combine(Url.Content("D:/Images/"), Images.ImageName);
-                picture.SaveAs(Images.ImagePath);
-                _context.Images.Add(Images);
+                AgentProfile.ImageName = AgentProfile.ImageName + newExtenion;
+                AgentProfile.ImagePath = Path.Combine(Url.Content("D:/Images/"), AgentProfile.ImageName);
+                picture.SaveAs(AgentProfile.ImagePath);
+               // _context.Images.Add(AgentProfile);
                 _context.AgentProfiles.Add(AgentProfile);
                 _context.SaveChanges();
-                AgentProfile.Image.ID = Images.ID;
+               // AgentProfile.Image.ID = Images.ID;
 
             }
             else
@@ -66,7 +63,12 @@ namespace Real_State.Controllers
 
             }
             _context.SaveChanges();
-            return RedirectToAction("Index", "Agent");
+            return RedirectToAction("Details", "Agent");
+        }
+        public ActionResult Details()
+        {
+            var agent = _context.AgentProfiles.ToList();
+            return View(agent);
         }
     }
 }

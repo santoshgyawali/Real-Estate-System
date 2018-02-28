@@ -74,3 +74,4 @@ C:\Users\santo\source\repos\Real_State\Real_State\obj\Debug\Real_State.csproj.Co
 C:\Users\santo\source\repos\Real_State\Real_State\obj\Debug\Real_State.dll
 C:\Users\santo\source\repos\Real_State\Real_State\obj\Debug\Real_State.pdb
 C:\Users\santo\source\repos\Real_State\Real_State\obj\Debug\Real_State.csprojResolveAssemblyReference.cache
+C:\Users\santo\source\repos\Real_State\Real_State\obj\Debug\Real_State.Migrations.DropImageTableAndAddimageToAgentProfile.resources

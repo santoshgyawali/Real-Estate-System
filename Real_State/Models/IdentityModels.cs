@@ -27,7 +27,7 @@ namespace Real_State.Models
 
         public DbSet<AgentProfile> AgentProfiles { get; set; }
 
-        public DbSet<Image> Images { get; set; }
+       // public DbSet<Image> Images { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

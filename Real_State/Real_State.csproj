@@ -206,18 +206,20 @@
     <Compile Include="Migrations\201802180355285_AddingIndentity.Designer.cs">
       <DependentUpon>201802180355285_AddingIndentity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802260015194_DropImageTableAndAddimageToAgentProfile.cs" />
+    <Compile Include="Migrations\201802260015194_DropImageTableAndAddimageToAgentProfile.Designer.cs">
+      <DependentUpon>201802260015194_DropImageTableAndAddimageToAgentProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AgentProfile.cs" />
     <Compile Include="Models\EmailForm.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Image.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PropertyProfile.cs" />
     <Compile Include="Models\PropertyTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModel\AgentFormViewModel.cs" />
     <Compile Include="ViewModel\PropertyFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -284,6 +286,7 @@
     <Content Include="Views\Agent\Create.cshtml" />
     <Content Include="Views\Agent\Index.cshtml" />
     <Content Include="Views\Home\Sent.cshtml" />
+    <Content Include="Views\Agent\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -313,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802180355285_AddingIndentity.resx">
       <DependentUpon>201802180355285_AddingIndentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802260015194_DropImageTableAndAddimageToAgentProfile.resx">
+      <DependentUpon>201802260015194_DropImageTableAndAddimageToAgentProfile.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -27,8 +27,8 @@ namespace Real_State.Models
         [DataType(DataType.Password)]
         public String Password { get; set; }
 
-        public byte ImageID { get; set; }
-        public Image Image { get; set; }
+        public string ImageName { get; set; }
+        public string ImagePath { get; set; }
 
     }
 }
