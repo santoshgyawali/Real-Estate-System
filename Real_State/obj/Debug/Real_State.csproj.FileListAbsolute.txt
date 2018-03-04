@@ -69,9 +69,12 @@ C:\Users\santo\source\repos\Real_State\Real_State\obj\Debug\Real_State.Migration
 C:\Users\santo\source\repos\Real_State\Real_State\obj\Debug\Real_State.Migrations.DeleteTables.resources
 C:\Users\santo\source\repos\Real_State\Real_State\obj\Debug\Real_State.Migrations.AddImageAgentTables.resources
 C:\Users\santo\source\repos\Real_State\Real_State\obj\Debug\Real_State.Migrations.AddingIndentity.resources
+C:\Users\santo\source\repos\Real_State\Real_State\obj\Debug\Real_State.Migrations.DropImageTableAndAddimageToAgentProfile.resources
+C:\Users\santo\source\repos\Real_State\Real_State\obj\Debug\Real_State.Migrations.AddImageTable.resources
+C:\Users\santo\source\repos\Real_State\Real_State\obj\Debug\Real_State.Migrations.UpdateImageTable.resources
+C:\Users\santo\source\repos\Real_State\Real_State\obj\Debug\Real_State.Migrations.ChangeIntToByteInID.resources
 C:\Users\santo\source\repos\Real_State\Real_State\obj\Debug\Real_State.csproj.GenerateResource.Cache
 C:\Users\santo\source\repos\Real_State\Real_State\obj\Debug\Real_State.csproj.CoreCompileInputs.cache
 C:\Users\santo\source\repos\Real_State\Real_State\obj\Debug\Real_State.dll
 C:\Users\santo\source\repos\Real_State\Real_State\obj\Debug\Real_State.pdb
 C:\Users\santo\source\repos\Real_State\Real_State\obj\Debug\Real_State.csprojResolveAssemblyReference.cache
-C:\Users\santo\source\repos\Real_State\Real_State\obj\Debug\Real_State.Migrations.DropImageTableAndAddimageToAgentProfile.resources

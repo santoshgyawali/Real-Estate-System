@@ -1,12 +1,18 @@
 ﻿@model Real_State.ViewModel.PropertyFormViewModel
+
+
 @{
     ViewBag.Title = "PropertyForm";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>PropertyForm</h2>
-@using (Html.BeginForm("Save", "Property"))
+@using (Html.BeginForm("Save", "Property",null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
+    <div class="form-group">
+        @Html.Label("photo", new { @class = "control-label" })
+        <input type="file" id="photo" name="picture" />
+    </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Property.PropertyTypesID)
         @Html.DropDownListFor(m => m.Property.PropertyTypesID, new SelectList(Model.KindsOfProperty, "ID", "PropertyTypesName"), "Select Membership Type", new { @class = "form-control" })

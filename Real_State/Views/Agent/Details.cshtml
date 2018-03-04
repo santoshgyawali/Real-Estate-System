@@ -1,53 +1,23 @@
-﻿@model IEnumerable<Real_State.Models.AgentProfile>
+﻿@model Real_State.Models.AgentProfile
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-
-}
-
-<h2 align="center">Agent Profile</h2>
-<table class="table table-bordered table-hover">
     
-    <thead>
-        <tr>
-            <th>Photo</th>
-            <th>Name </th>
-            <th>Phone NO</th>
-            <th>Email</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var agent in Model)
-        {
-            <tr>
-                <td><img src="@Url.Content(agent.ImagePath)" alt="Image" /></td>
-                <td>@agent.Name</td>
-                <td>@agent.PhoneNo</td>
-                <td>@agent.Email</td>
-            </tr>
-        }
-    </tbody>
-    </table>
+}
+<h2>Details</h2>
+
+<div>
+    <dl>
+        <dd>
+            <img src="~/Images_Agent/@Model.ImageName" height="200px" width="200px"/>
+            <br/>
+        </dd>
+        
+        <dd>Name: @Model.Name </dd>
+        <dd>Phone:@Model.PhoneNo</dd>
+        <dd>Email:@Model.Email</dd>
+    </dl>
+</div>
 
 
-    @*<body align="center">
-        <table>
-            <tr>
-                <td> Name: </td>
-            </tr>
-            <tr>
-                <td>Date of Birth: @Model.DateOfBirth</td>
-            </tr>
-            <tr>
-                <td>License No: @Model.LicenseNo</td>
-            </tr>
-            <tr>
-                <td>Phone Number: @Model.PhoneNo</td>
-            </tr>
-            <tr>
-                <td>Email:  @Model.Email</td>
-            </tr>
 
-        </table>
-        </body>*@
-    }
+

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Real_State.Models;
 using Real_State.ViewModel;
 using System.Data.Entity;
+using System.IO;
 
 namespace Real_State.Controllers
 {
@@ -28,31 +29,53 @@ namespace Real_State.Controllers
            // var property = _context.PropertyProfiles.Include(c => c.TypesOfProperty).ToList();
             return View(property);
         }
-        public ActionResult PropertyForm()
-                {
+        public ActionResult Create()
+        {
             var PropertyTypes = _context.PropertyTypess.ToList();
+            var image = _context.Images.ToList();
             var viewModel = new PropertyFormViewModel
             {
                 Property = new PropertyProfile(),
-                KindsOfProperty = PropertyTypes
+                KindsOfProperty = PropertyTypes,
+                image=image
             };
-            return View("PropertyForm", viewModel);
+            return View("Create", viewModel);
         }
         [HttpPost]
-        public ActionResult Save(PropertyProfile property)
+        public ActionResult Save(PropertyProfile Property,Image image, IEnumerable<HttpPostedFileBase> picture)
         {
-            if (property.ID == 0)
-                _context.PropertyProfiles.Add(property);
+            foreach (var pic in picture)
+            {
+                if (pic != null)
+                {
+
+                    image.ImageName = Path.GetFileNameWithoutExtension(pic.FileName);
+                    string extension = Path.GetExtension(pic.FileName);
+                    var newExtension = Guid.NewGuid();
+                    image.ImageName = image.ImageName + newExtension;
+                    image.ImagePath = Path.Combine(Url.Content("C:/Users/santo/source/repos/Real_State/Property_Images/"), image.ImageName);
+                    pic.SaveAs(image.ImagePath);
+                    // _context.Images.Add(AgentProfile);
+                    //Property.ID = image.ID;
+                   // image.PropertyProfileID = Property.ID;
+                   // _context.Images.Add(image);
+
+                    _context.SaveChanges();
+
+                }
+            }
+            if (Property.ID == 0)
+                _context.PropertyProfiles.Add(Property);
             else
             {
-                var customerInDb = _context.PropertyProfiles.Single(c => c.ID == property.ID);
-                customerInDb.PropertyTypesID = property.PropertyTypesID;
-                customerInDb.BedroomNumber = property.BedroomNumber;
-                customerInDb.BathroomNumber = property.BathroomNumber;
-                customerInDb.Area = property.Area;
-                customerInDb.Location = property.Location;
-                customerInDb.Price = property.Price;
-                customerInDb.Description = property.Description;
+                var customerInDb = _context.PropertyProfiles.Single(c => c.ID == Property.ID);
+                customerInDb.PropertyTypesID = Property.PropertyTypesID;
+                customerInDb.BedroomNumber = Property.BedroomNumber;
+                customerInDb.BathroomNumber = Property.BathroomNumber;
+                customerInDb.Area = Property.Area;
+                customerInDb.Location = Property.Location;
+                customerInDb.Price = Property.Price;
+                customerInDb.Description = Property.Description;
                
             }
 
@@ -79,7 +102,7 @@ namespace Real_State.Controllers
                 KindsOfProperty = _context.PropertyTypess.ToList()
             };
 
-            return View("PropertyForm", viewModel);
+            return View("Create", viewModel);
         }
 
     }

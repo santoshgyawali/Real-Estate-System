@@ -42,10 +42,12 @@ namespace Real_State.Controllers
                 AgentProfile.ImageName = Path.GetFileNameWithoutExtension(picture.FileName);
                 String extension = Path.GetExtension(picture.FileName);
                 var newExtenion = Guid.NewGuid();
-                AgentProfile.ImageName = AgentProfile.ImageName + newExtenion;
-                AgentProfile.ImagePath = Path.Combine(Url.Content("D:/Images/"), AgentProfile.ImageName);
+                AgentProfile.ImageName = AgentProfile.ImageName + newExtenion+extension;
+                AgentProfile.ImagePath = Path.Combine(Server.MapPath("~/Images_Agent/"), AgentProfile.ImageName);
+                //AgentProfile.ImagePath = Path.Combine(Server.MapPath("D:/Images/"), AgentProfile.ImageName);
                 picture.SaveAs(AgentProfile.ImagePath);
-               // _context.Images.Add(AgentProfile);
+                // _context.Images.Add(AgentProfile);
+
                 _context.AgentProfiles.Add(AgentProfile);
                 _context.SaveChanges();
                // AgentProfile.Image.ID = Images.ID;
@@ -54,6 +56,15 @@ namespace Real_State.Controllers
             else
             {
                 var agentInDb = _context.AgentProfiles.Single(a => a.ID == AgentProfile.ID);
+                agentInDb.ImageName = Path.GetFileNameWithoutExtension(picture.FileName);
+                String extension = Path.GetExtension(picture.FileName);
+                var newExtenion = Guid.NewGuid();
+                agentInDb.ImageName = agentInDb.ImageName + newExtenion + extension;
+                agentInDb.ImagePath = Path.Combine(Server.MapPath("~/Images_Agent/"), agentInDb.ImageName);
+                picture.SaveAs(agentInDb.ImagePath);
+                _context.AgentProfiles.Add(AgentProfile);
+               // _context.SaveChanges();
+
                 agentInDb.Name = AgentProfile.Name;
                 agentInDb.DateOfBirth = AgentProfile.DateOfBirth;
                 agentInDb.PhoneNo = AgentProfile.PhoneNo;
@@ -65,10 +76,25 @@ namespace Real_State.Controllers
             _context.SaveChanges();
             return RedirectToAction("Details", "Agent");
         }
-        public ActionResult Details()
+        public ActionResult Details(int id)
         {
-            var agent = _context.AgentProfiles.ToList();
+            
+            var agent = _context.AgentProfiles.SingleOrDefault(c => c.ID == id);
+            if (agent == null)
+            {
+               
+                return HttpNotFound();
+            }
             return View(agent);
         }
+        public ActionResult Edit(int id)
+        {
+            var agent = _context.AgentProfiles.SingleOrDefault(c => c.ID == id);
+            if (agent == null)
+                return HttpNotFound();
+            return View("Edit", agent);
+        }
+        
+        
     }
 }

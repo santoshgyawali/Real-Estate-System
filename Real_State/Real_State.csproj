@@ -210,11 +210,24 @@
     <Compile Include="Migrations\201802260015194_DropImageTableAndAddimageToAgentProfile.Designer.cs">
       <DependentUpon>201802260015194_DropImageTableAndAddimageToAgentProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802281730094_AddImageTable.cs" />
+    <Compile Include="Migrations\201802281730094_AddImageTable.Designer.cs">
+      <DependentUpon>201802281730094_AddImageTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802281735467_UpdateImageTable.cs" />
+    <Compile Include="Migrations\201802281735467_UpdateImageTable.Designer.cs">
+      <DependentUpon>201802281735467_UpdateImageTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803010134455_ChangeIntToByteInID.cs" />
+    <Compile Include="Migrations\201803010134455_ChangeIntToByteInID.Designer.cs">
+      <DependentUpon>201803010134455_ChangeIntToByteInID.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AgentProfile.cs" />
     <Compile Include="Models\EmailForm.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Image.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PropertyProfile.cs" />
     <Compile Include="Models\PropertyTypes.cs" />
@@ -281,15 +294,17 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Property\Details.cshtml" />
-    <Content Include="Views\Property\PropertyForm.cshtml" />
+    <Content Include="Views\Property\Create.cshtml" />
     <Content Include="Views\Property\Index.cshtml" />
     <Content Include="Views\Agent\Create.cshtml" />
     <Content Include="Views\Agent\Index.cshtml" />
     <Content Include="Views\Home\Sent.cshtml" />
     <Content Include="Views\Agent\Details.cshtml" />
+    <Content Include="Views\Agent\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images_Agent\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -319,6 +334,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802260015194_DropImageTableAndAddimageToAgentProfile.resx">
       <DependentUpon>201802260015194_DropImageTableAndAddimageToAgentProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802281730094_AddImageTable.resx">
+      <DependentUpon>201802281730094_AddImageTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802281735467_UpdateImageTable.resx">
+      <DependentUpon>201802281735467_UpdateImageTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803010134455_ChangeIntToByteInID.resx">
+      <DependentUpon>201803010134455_ChangeIntToByteInID.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

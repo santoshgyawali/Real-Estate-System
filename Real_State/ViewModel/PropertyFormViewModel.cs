@@ -10,5 +10,6 @@ namespace Real_State.ViewModel
     {
         public IEnumerable<PropertyTypes> KindsOfProperty { get; set; }
         public PropertyProfile  Property { get; set; }
+        public IEnumerable<Image> image { get; set; }
     }
 }

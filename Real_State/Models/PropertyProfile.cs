@@ -7,7 +7,7 @@ namespace Real_State.Models
 {
     public class PropertyProfile
     {
-        public int ID { get; set; }
+        public byte ID { get; set; }
 
         public int BathroomNumber { get; set; }
 
@@ -25,7 +25,7 @@ namespace Real_State.Models
 
         public PropertyTypes TypesOfProperty { get; set; }
 
-        //public virtual ICollection<Image> Images { get; set; }
+        public virtual IEnumerable<Image> Image { get; set; }
 
     }
 }
