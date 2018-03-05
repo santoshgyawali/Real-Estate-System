@@ -94,7 +94,16 @@ namespace Real_State.Controllers
                 return HttpNotFound();
             return View("Edit", agent);
         }
-        
+
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            var agent = _context.AgentProfiles.Find(id);
+            _context.AgentProfiles.Remove(agent);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
         
     }
 }

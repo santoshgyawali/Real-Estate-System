@@ -1,8 +1,34 @@
-﻿@model Real_State.ViewModel.AgentFormViewModel
+﻿@model IEnumerable<Real_State.Models.AgentProfile>
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Name</h2>
+<h2>Agent Details</h2>
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Agent</th>
+                <th>Email</th>
+                <th>Phone</th>
+                
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var agent in Model)
+            {
+                <tr>
+                    <td>@agent.Name</td>
+                    <td>@agent.Email</td>
+                    <td>@agent.PhoneNo</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
 
 

@@ -8,39 +8,52 @@
 <h2>Edit</h2>
 @using (Html.BeginForm("save", "agent", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    
-    <img src="~/Images_Agent/@Model.ImageName"/>
-        <div class="form-group">
-            @Html.Label("photo", new { @class = "control-label" })
-            <input type="file" id="photo" name="picture" />
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.Name)
-            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.DateOfBirth)
-            @Html.TextBoxFor(m => m.DateOfBirth, new { @class = "form-control" })
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.PhoneNo)
-            @Html.TextBoxFor(m => m.PhoneNo, new { @class = "form-control" })
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.LicenseNo)
-            @Html.TextBoxFor(m => m.LicenseNo, new { @class = "form-control" })
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.Email)
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.Password)
-            @Html.TextBoxFor(m => m.Password, new { @class = "form-control" })
-        </div>
-           @Html.HiddenFor(m=>m.ID)
-        <button type="submit" class="btn btn-primary">save</button>
 
-
+    <img src="~/Images_Agent/@Model.ImageName" />
+    <div class="form-group">
+        @Html.Label("photo", new { @class = "control-label" })
+        <input type="file" id="photo" name="picture" />
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.DateOfBirth)
+        @Html.TextBoxFor(m => m.DateOfBirth, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.PhoneNo)
+        @Html.TextBoxFor(m => m.PhoneNo, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.LicenseNo)
+        @Html.TextBoxFor(m => m.LicenseNo, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password)
+        @Html.TextBoxFor(m => m.Password, new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(m => m.ID)
+    <button type="submit" class="btn btn-primary">save</button>
 }
+    @using (Html.BeginForm("Delete", "Agent", new { id = Model.ID }))
+            {
+                <button type = "submit" class="btn btn-primary" onclick="return confirm('Are you sure you want to delete your profile?')">Delete</button>
+    }
 
+@*@section scripts
+    {
+        <script>
+            $(document).ready(function () {
+                $("#agent.js - delete").on("click", function () {
+                    confirm("Are you sure you want to delete");
+                });
+            });
+        </script>
+
+    }*@
